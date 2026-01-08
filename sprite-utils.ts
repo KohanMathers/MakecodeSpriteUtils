@@ -3,10 +3,7 @@
  * Utility functions for sprite manipulation including rotation, flipping, and more
  */
 
-// Version check - look for this in console to confirm updated version loaded
-console.log("Sprite Utils v1.0.1 loaded - FIXED VERSION");
-
-//% color=#FF6680 weight=100 icon="\uf0c8"
+//% color=#00A19B weight=100 icon="\uf0c8"
 //% block="Sprite Utils"
 //% groups=["Rotation", "Flip"]
 namespace spriteUtils {
@@ -19,9 +16,11 @@ namespace spriteUtils {
     //% blockId=sprite_rotate
     //% block="rotate %sprite by %angle degrees"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% angle.min=-360 angle.max=360
     //% weight=100
     //% group="Rotation"
+    //% inlineInputMode=inline
     export function rotate(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
 
@@ -37,9 +36,11 @@ namespace spriteUtils {
     //% blockId=sprite_set_rotation
     //% block="set %sprite rotation to %angle degrees"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% angle.min=0 angle.max=360
     //% weight=90
     //% group="Rotation"
+    //% inlineInputMode=inline
     export function setRotation(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
 
@@ -60,6 +61,7 @@ namespace spriteUtils {
     //% blockId=sprite_get_rotation
     //% block="%sprite rotation"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% weight=80
     //% group="Rotation"
     export function getRotation(sprite: Sprite): number {
@@ -75,9 +77,11 @@ namespace spriteUtils {
     //% blockId=sprite_face_direction
     //% block="make %sprite face %direction"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% direction.min=0 direction.max=360
     //% weight=70
     //% group="Rotation"
+    //% inlineInputMode=inline
     export function faceDirection(sprite: Sprite, direction: number): void {
         setRotation(sprite, direction);
     }
@@ -90,9 +94,12 @@ namespace spriteUtils {
     //% blockId=sprite_face_sprite
     //% block="make %sprite face toward %target"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% target.defl=otherSprite
+    //% target.shadow=variables_get
     //% weight=60
     //% group="Rotation"
+    //% inlineInputMode=inline
     export function faceToward(sprite: Sprite, target: Sprite): void {
         if (!sprite || !target) return;
         
@@ -112,10 +119,12 @@ namespace spriteUtils {
     //% blockId=sprite_smooth_rotate
     //% block="smoothly rotate %sprite by %angle degrees over %duration ms"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% angle.min=-360 angle.max=360
     //% duration.min=0 duration.max=5000
     //% weight=50
     //% group="Rotation"
+    //% inlineInputMode=inline
     export function smoothRotate(sprite: Sprite, angle: number, duration: number): void {
         if (!sprite) return;
         
@@ -143,6 +152,7 @@ namespace spriteUtils {
     //% blockId=sprite_reset_rotation
     //% block="reset %sprite rotation"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% weight=40
     //% group="Rotation"
     export function resetRotation(sprite: Sprite): void {
@@ -161,6 +171,7 @@ namespace spriteUtils {
     //% blockId=sprite_flip_horizontal
     //% block="flip %sprite horizontally"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% weight=30
     //% group="Flip"
     export function flipHorizontal(sprite: Sprite): void {
@@ -175,6 +186,7 @@ namespace spriteUtils {
     //% blockId=sprite_flip_vertical
     //% block="flip %sprite vertically"
     //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
     //% weight=20
     //% group="Flip"
     export function flipVertical(sprite: Sprite): void {
