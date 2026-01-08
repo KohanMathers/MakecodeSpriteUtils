@@ -1,0 +1,26 @@
+{
+    "name": "sprite-utils",
+    "version": "1.0.0",
+    "description": "Utility functions for sprite manipulation in MakeCode Arcade.",
+    "license": "MIT",
+    "author": "Kohan Mathers",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "README.md",
+        "sprite-utils.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "1.12.30",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
