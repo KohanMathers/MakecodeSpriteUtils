@@ -45,11 +45,14 @@ namespace spriteUtils {
     //% inlineInputMode=inline
     //% blockGap=8
     export function setRotation(sprite: Sprite, angle: number): void {
-        if (!sprite || !sprite.image) return;
+        if (!sprite || !sprite.image || !sprite.data) return;
 
         if (!sprite.data["__originalImage"]) {
             sprite.data["__originalImage"] = sprite.image.clone();
         }
+
+        // Additional safety check for the original image
+        if (!sprite.data["__originalImage"]) return;
 
         const radians = angle * Math.PI / 180;
         sprite.setImage(rotateImage(sprite.data["__originalImage"], radians));
