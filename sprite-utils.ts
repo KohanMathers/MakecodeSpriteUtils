@@ -5,7 +5,7 @@
 
 //% color=#FF6680 weight=100 icon="\uf0c8"
 //% block="Sprite Utils"
-//% groups=['Rotation', 'Flip']
+//% groups=["Rotation", "Flip"]
 namespace spriteUtils {
     
     /**
