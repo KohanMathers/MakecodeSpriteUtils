@@ -136,15 +136,18 @@ namespace spriteUtils {
         if (!sprite) return;
         
         const startRotation = getRotation(sprite);
-        const endRotation = startRotation + angle;
         const startTime = game.runtime();
         const steps = Math.max(1, Math.floor(duration / 50));
+        const stepDuration = duration / steps;
         
         for (let i = 0; i <= steps; i++) {
             const progress = i / steps;
             const currentAngle = startRotation + (angle * progress);
+            const delay = stepDuration * i;
             
-            game.onUpdateInterval(50 * i, function() {
+            // Use pause() in a background fiber instead of onUpdateInterval
+            control.runInParallel(function() {
+                pause(delay);
                 if (sprite) {
                     setRotation(sprite, currentAngle);
                 }
@@ -170,6 +173,33 @@ namespace spriteUtils {
             sprite.setImage(sprite.data["__originalImage"].clone());
             sprite.data["__currentRotation"] = 0;
         }
+    }
+
+    /**
+     * Rotate sprite exactly 90 degrees clockwise (optimized for perfect quality)
+     * @param sprite the sprite to rotate
+     */
+    //% blockId=sprite_rotate_90
+    //% block="rotate %sprite 90 degrees clockwise"
+    //% sprite.defl=mySprite
+    //% sprite.shadow=variables_get
+    //% weight=35
+    //% group="Rotation"
+    //% blockGap=8
+    export function rotate90(sprite: Sprite): void {
+        if (!sprite || !sprite.image) return;
+
+        if (!sprite.data["__originalImage"]) {
+            sprite.data["__originalImage"] = sprite.image.clone();
+        }
+
+        const currentRotation = sprite.data["__currentRotation"] || 0;
+        const newRotation = (currentRotation + 90) % 360;
+
+        // For 90-degree increments, use transpose and flip for perfect quality
+        const rotated = rotate90Degrees(sprite.data["__originalImage"], newRotation);
+        sprite.setImage(rotated);
+        sprite.data["__currentRotation"] = newRotation;
     }
 
     /**
@@ -205,7 +235,35 @@ namespace spriteUtils {
     }
 
     /**
-     * Internal function to rotate an image
+     * Internal function to rotate an image by 90-degree increments (perfect quality)
+     */
+    function rotate90Degrees(img, totalDegrees: number) {
+        const degrees = ((totalDegrees % 360) + 360) % 360;
+        const times = Math.floor(degrees / 90);
+        let result = img.clone();
+        for (let i = 0; i < times; i++) {
+            result = rotate90Once(result);
+        }
+        return result;
+    }
+
+    /**
+     * Rotate image exactly 90 degrees clockwise with perfect quality
+     */
+    function rotate90Once(img) {
+        const width = img.width;
+        const height = img.height;
+        const rotated = image.create(height, width);
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                rotated.setPixel(height - 1 - y, x, img.getPixel(x, y));
+            }
+        }
+        return rotated;
+    }
+
+    /**
+     * Internal function to rotate an image by arbitrary angles
      */
     function rotateImage(img: Image, radians: number): Image {
         const cos = Math.cos(radians);
