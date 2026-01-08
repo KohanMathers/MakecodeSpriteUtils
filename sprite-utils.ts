@@ -3,11 +3,14 @@
  * Utility functions for sprite manipulation including rotation, flipping, and more
  */
 
+// Version check - look for this in console to confirm updated version loaded
+console.log("Sprite Utils v1.0.1 loaded - FIXED VERSION");
+
 //% color=#FF6680 weight=100 icon="\uf0c8"
 //% block="Sprite Utils"
 //% groups=["Rotation", "Flip"]
 namespace spriteUtils {
-    
+
     /**
      * Rotate a sprite by a specified angle in degrees
      * @param sprite the sprite to rotate
