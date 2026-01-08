@@ -26,8 +26,16 @@ namespace spriteUtils {
     export function rotate(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
 
+        // Ensure sprite.data exists (MakeCode Arcade requirement)
+        if (!sprite.data) {
+            sprite.data = {};
+        }
+
         const radians = angle * Math.PI / 180;
-        sprite.setImage(rotateImage(sprite.image, radians));
+        const rotatedImage = rotateImage(sprite.image, radians);
+        if (rotatedImage) {
+            sprite.setImage(rotatedImage);
+        }
     }
 
     /**
