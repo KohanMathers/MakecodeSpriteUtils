@@ -6,6 +6,7 @@
 //% color=#00A19B weight=100 icon="\uf0c8"
 //% block="Sprite Utils"
 //% groups=["Rotation", "Flip"]
+//% blockGap=8
 namespace spriteUtils {
 
     /**
@@ -21,6 +22,7 @@ namespace spriteUtils {
     //% weight=100
     //% group="Rotation"
     //% inlineInputMode=inline
+    //% blockGap=8
     export function rotate(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
 
@@ -41,6 +43,7 @@ namespace spriteUtils {
     //% weight=90
     //% group="Rotation"
     //% inlineInputMode=inline
+    //% blockGap=8
     export function setRotation(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
 
@@ -64,6 +67,7 @@ namespace spriteUtils {
     //% sprite.shadow=variables_get
     //% weight=80
     //% group="Rotation"
+    //% blockGap=8
     export function getRotation(sprite: Sprite): number {
         if (!sprite) return 0;
         return sprite.data["__currentRotation"] || 0;
@@ -82,6 +86,7 @@ namespace spriteUtils {
     //% weight=70
     //% group="Rotation"
     //% inlineInputMode=inline
+    //% blockGap=8
     export function faceDirection(sprite: Sprite, direction: number): void {
         setRotation(sprite, direction);
     }
@@ -100,6 +105,7 @@ namespace spriteUtils {
     //% weight=60
     //% group="Rotation"
     //% inlineInputMode=inline
+    //% blockGap=8
     export function faceToward(sprite: Sprite, target: Sprite): void {
         if (!sprite || !target) return;
         
@@ -125,6 +131,7 @@ namespace spriteUtils {
     //% weight=50
     //% group="Rotation"
     //% inlineInputMode=inline
+    //% blockGap=8
     export function smoothRotate(sprite: Sprite, angle: number, duration: number): void {
         if (!sprite) return;
         
@@ -155,6 +162,7 @@ namespace spriteUtils {
     //% sprite.shadow=variables_get
     //% weight=40
     //% group="Rotation"
+    //% blockGap=8
     export function resetRotation(sprite: Sprite): void {
         if (!sprite) return;
 
@@ -174,6 +182,7 @@ namespace spriteUtils {
     //% sprite.shadow=variables_get
     //% weight=30
     //% group="Flip"
+    //% blockGap=8
     export function flipHorizontal(sprite: Sprite): void {
         if (!sprite || !sprite.image) return;
         sprite.image.flipX();
@@ -189,6 +198,7 @@ namespace spriteUtils {
     //% sprite.shadow=variables_get
     //% weight=20
     //% group="Flip"
+    //% blockGap=8
     export function flipVertical(sprite: Sprite): void {
         if (!sprite || !sprite.image) return;
         sprite.image.flipY();
