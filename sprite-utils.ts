@@ -21,9 +21,9 @@ namespace spriteUtils {
     //% group="Rotation"
     export function rotate(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
-        
+
         const radians = angle * Math.PI / 180;
-        sprite.image = rotateImage(sprite.image, radians);
+        sprite.setImage(rotateImage(sprite.image, radians));
     }
 
     /**
@@ -39,13 +39,13 @@ namespace spriteUtils {
     //% group="Rotation"
     export function setRotation(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
-        
+
         if (!sprite.data["__originalImage"]) {
             sprite.data["__originalImage"] = sprite.image.clone();
         }
-        
+
         const radians = angle * Math.PI / 180;
-        sprite.image = rotateImage(sprite.data["__originalImage"], radians);
+        sprite.setImage(rotateImage(sprite.data["__originalImage"], radians));
         sprite.data["__currentRotation"] = angle;
     }
 
@@ -144,9 +144,9 @@ namespace spriteUtils {
     //% group="Rotation"
     export function resetRotation(sprite: Sprite): void {
         if (!sprite) return;
-        
+
         if (sprite.data["__originalImage"]) {
-            sprite.image = sprite.data["__originalImage"].clone();
+            sprite.setImage(sprite.data["__originalImage"].clone());
             sprite.data["__currentRotation"] = 0;
         }
     }
