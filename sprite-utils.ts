@@ -5,6 +5,7 @@
 
 //% color=#FF6680 weight=100 icon="\uf0c8"
 //% block="Sprite Utils"
+//% groups=['Rotation', 'Flip']
 namespace spriteUtils {
     
     /**
@@ -17,6 +18,7 @@ namespace spriteUtils {
     //% sprite.defl=mySprite
     //% angle.min=-360 angle.max=360
     //% weight=100
+    //% group="Rotation"
     export function rotate(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
         
@@ -34,6 +36,7 @@ namespace spriteUtils {
     //% sprite.defl=mySprite
     //% angle.min=0 angle.max=360
     //% weight=90
+    //% group="Rotation"
     export function setRotation(sprite: Sprite, angle: number): void {
         if (!sprite || !sprite.image) return;
         
@@ -55,6 +58,7 @@ namespace spriteUtils {
     //% block="%sprite rotation"
     //% sprite.defl=mySprite
     //% weight=80
+    //% group="Rotation"
     export function getRotation(sprite: Sprite): number {
         if (!sprite) return 0;
         return sprite.data["__currentRotation"] || 0;
@@ -70,6 +74,7 @@ namespace spriteUtils {
     //% sprite.defl=mySprite
     //% direction.min=0 direction.max=360
     //% weight=70
+    //% group="Rotation"
     export function faceDirection(sprite: Sprite, direction: number): void {
         setRotation(sprite, direction);
     }
@@ -84,6 +89,7 @@ namespace spriteUtils {
     //% sprite.defl=mySprite
     //% target.defl=otherSprite
     //% weight=60
+    //% group="Rotation"
     export function faceToward(sprite: Sprite, target: Sprite): void {
         if (!sprite || !target) return;
         
@@ -106,6 +112,7 @@ namespace spriteUtils {
     //% angle.min=-360 angle.max=360
     //% duration.min=0 duration.max=5000
     //% weight=50
+    //% group="Rotation"
     export function smoothRotate(sprite: Sprite, angle: number, duration: number): void {
         if (!sprite) return;
         
@@ -134,6 +141,7 @@ namespace spriteUtils {
     //% block="reset %sprite rotation"
     //% sprite.defl=mySprite
     //% weight=40
+    //% group="Rotation"
     export function resetRotation(sprite: Sprite): void {
         if (!sprite) return;
         
@@ -151,6 +159,7 @@ namespace spriteUtils {
     //% block="flip %sprite horizontally"
     //% sprite.defl=mySprite
     //% weight=30
+    //% group="Flip"
     export function flipHorizontal(sprite: Sprite): void {
         if (!sprite || !sprite.image) return;
         sprite.image.flipX();
@@ -164,6 +173,7 @@ namespace spriteUtils {
     //% block="flip %sprite vertically"
     //% sprite.defl=mySprite
     //% weight=20
+    //% group="Flip"
     export function flipVertical(sprite: Sprite): void {
         if (!sprite || !sprite.image) return;
         sprite.image.flipY();
