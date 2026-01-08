@@ -3,7 +3,6 @@
     "version": "1.0.5",
     "description": "Utility functions for sprite manipulation in MakeCode Arcade.",
     "license": "MIT",
-    "author": "Kohan Mathers",
     "dependencies": {
         "device": "*"
     },
@@ -22,5 +21,6 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "author": "Kohan Mathers"
 }

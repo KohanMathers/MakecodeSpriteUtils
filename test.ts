@@ -24,22 +24,22 @@ testSprite.setPosition(80, 60)
 
 // Test 1: Basic rotation
 controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-    spriteRotation.rotate(testSprite, 45)
+    spriteUtils.rotate(testSprite, 45)
 })
 
 // Test 2: Set absolute rotation
 controller.B.onEvent(ControllerButtonEvent.Pressed, function() {
-    spriteRotation.setRotation(testSprite, 90)
+    spriteUtils.setRotation(testSprite, 90)
 })
 
 // Test 3: Reset rotation
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function() {
-    spriteRotation.resetRotation(testSprite)
+    spriteUtils.resetRotation(testSprite)
 })
 
 // Test 4: Smooth rotation
 let rotationAmount = 0
 game.onUpdateInterval(2000, function() {
     rotationAmount += 90
-    spriteRotation.smoothRotate(testSprite, 90, 1000)
+    spriteUtils.smoothRotate(testSprite, 90, 1000)
 })
