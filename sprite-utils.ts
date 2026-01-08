@@ -134,25 +134,33 @@ namespace spriteUtils {
     //% blockGap=8
     export function smoothRotate(sprite: Sprite, angle: number, duration: number): void {
         if (!sprite) return;
-        
+
+        // Prevent overlapping animations on the same sprite
+        if (sprite.data["__isRotating"]) return;
+
+        sprite.data["__isRotating"] = true;
         const startRotation = getRotation(sprite);
-        const startTime = game.runtime();
         const steps = Math.max(1, Math.floor(duration / 50));
         const stepDuration = duration / steps;
-        
-        for (let i = 0; i <= steps; i++) {
-            const progress = i / steps;
-            const currentAngle = startRotation + (angle * progress);
-            const delay = stepDuration * i;
-            
-            // Use pause() in a background fiber instead of onUpdateInterval
-            control.runInParallel(function() {
-                pause(delay);
+
+        control.runInParallel(function() {
+            for (let i = 0; i <= steps; i++) {
+                const progress = i / steps;
+                const currentAngle = startRotation + (angle * progress);
+
                 if (sprite) {
                     setRotation(sprite, currentAngle);
                 }
-            });
-        }
+
+                if (i < steps) {
+                    pause(stepDuration);
+                }
+            }
+
+            if (sprite) {
+                sprite.data["__isRotating"] = false;
+            }
+        });
     }
 
     /**
