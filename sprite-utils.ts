@@ -245,7 +245,7 @@ namespace spriteUtils {
     /**
      * Internal function to rotate an image by 90-degree increments (perfect quality)
      */
-    function rotate90Degrees(img, totalDegrees: number) {
+    function rotate90Degrees(img: any, totalDegrees: number) {
         const degrees = ((totalDegrees % 360) + 360) % 360;
         const times = Math.floor(degrees / 90);
         let result = img.clone();
@@ -258,7 +258,7 @@ namespace spriteUtils {
     /**
      * Rotate image exactly 90 degrees clockwise with perfect quality
      */
-    function rotate90Once(img) {
+    function rotate90Once(img: any) {
         const width = img.width;
         const height = img.height;
         const rotated = image.create(height, width);
@@ -273,7 +273,7 @@ namespace spriteUtils {
     /**
      * Internal function to rotate an image by arbitrary angles
      */
-    function rotateImage(img: Image, radians: number): Image {
+    function rotateImage(img: any, radians: number) {
         const cos = Math.cos(radians);
         const sin = Math.sin(radians);
         
