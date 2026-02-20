@@ -51,7 +51,7 @@ let other = sprites.create(img`...`, SpriteKind.Enemy)
 // Rotation
 spriteUtils.rotate(mySprite, 45)
 spriteUtils.setRotation(mySprite, 90)
-let rot = spriteUtils.getRotation(mySprite)
+let rot = spriteUtils.rotation(mySprite)
 spriteUtils.resetRotation(mySprite)
 spriteUtils.faceDirection(mySprite, 270)
 spriteUtils.faceToward(mySprite, other)
@@ -67,8 +67,8 @@ spriteUtils.recolor(mySprite, 2, 9)
 spriteUtils.outline(mySprite, 1)
 
 // Movement
-let d = spriteUtils.getDistanceBetween(mySprite, other)
-let a = spriteUtils.getAngleBetween(mySprite, other)
+let d = spriteUtils.distanceBetween(mySprite, other)
+let a = spriteUtils.angleBetween(mySprite, other)
 spriteUtils.moveForward(mySprite, 12)
 spriteUtils.orbitAroundPoint(mySprite, 80, 60, 30, 90, 2000)
 
