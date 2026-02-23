@@ -1,8 +1,8 @@
 /**
  * Utility functions for sprite manipulation in MakeCode Arcade.
  */
-//% color=#00A19B icon="\uf0ad" block="Sprite Utils"
-namespace spriteUtils {
+//% color=#00A19B icon="\uf0ad" block="Sprite FX"
+namespace spriteFx {
     const trackedSprites: Sprite[] = []
     const originalImages: Image[] = []
     const rotationAngles: number[] = []

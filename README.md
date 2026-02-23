@@ -1,4 +1,4 @@
-# Sprite Utils
+# sprite-fx
 
 Utility functions for sprite manipulation in MakeCode Arcade.
 
@@ -40,7 +40,7 @@ This extension provides sprite utilities in five groups:
 1. Open your MakeCode Arcade project
 2. Click **Extensions** (under Advanced)
 3. Enter the URL of this repository
-4. The **Sprite Utils** category appears in the toolbox
+4. The **Sprite FX** category appears in the toolbox
 
 ## API Examples
 
@@ -49,38 +49,38 @@ let mySprite = sprites.create(img`...`, SpriteKind.Player)
 let other = sprites.create(img`...`, SpriteKind.Enemy)
 
 // Rotation
-spriteUtils.rotate(mySprite, 45)
-spriteUtils.setRotation(mySprite, 90)
-let rot = spriteUtils.rotation(mySprite)
-spriteUtils.resetRotation(mySprite)
-spriteUtils.faceDirection(mySprite, 270)
-spriteUtils.faceToward(mySprite, other)
-spriteUtils.smoothRotate(mySprite, 180, 1000)
+spriteFx.rotate(mySprite, 45)
+spriteFx.setRotation(mySprite, 90)
+let rot = spriteFx.rotation(mySprite)
+spriteFx.resetRotation(mySprite)
+spriteFx.faceDirection(mySprite, 270)
+spriteFx.faceToward(mySprite, other)
+spriteFx.smoothRotate(mySprite, 180, 1000)
 
 // Transform
-spriteUtils.flipHorizontal(mySprite)
-spriteUtils.flipVertical(mySprite)
+spriteFx.flipHorizontal(mySprite)
+spriteFx.flipVertical(mySprite)
 
 // Effects
-spriteUtils.setOpacity(mySprite, 60)
-spriteUtils.recolor(mySprite, 2, 9)
-spriteUtils.outline(mySprite, 1)
+spriteFx.setOpacity(mySprite, 60)
+spriteFx.recolor(mySprite, 2, 9)
+spriteFx.outline(mySprite, 1)
 
 // Movement
-let d = spriteUtils.distanceBetween(mySprite, other)
-let a = spriteUtils.angleBetween(mySprite, other)
-spriteUtils.moveForward(mySprite, 12)
-spriteUtils.orbitAroundPoint(mySprite, 80, 60, 30, 90, 2000)
+let d = spriteFx.distanceBetween(mySprite, other)
+let a = spriteFx.angleBetween(mySprite, other)
+spriteFx.moveForward(mySprite, 12)
+spriteFx.orbitAroundPoint(mySprite, 80, 60, 30, 90, 2000)
 
 // Image
-spriteUtils.cloneSpriteImage(mySprite, other)
-spriteUtils.stampToBackground(mySprite)
-spriteUtils.cropTransparentBorder(mySprite)
+spriteFx.cloneSpriteImage(mySprite, other)
+spriteFx.stampToBackground(mySprite)
+spriteFx.cropTransparentBorder(mySprite)
 ```
 
 ## Block Category
 
-- Category name: **Sprite Utils**
+- Category name: **Sprite FX**
 - Category color: `#00A19B`
 
 ## Notes

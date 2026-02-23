@@ -1,5 +1,5 @@
 {
-    "name": "sprite-utils",
+    "name": "sprite-fx",
     "version": "1.1.0",
     "description": "Utility functions for sprite manipulation in MakeCode Arcade.",
     "license": "MIT",
@@ -8,7 +8,7 @@
     },
     "files": [
         "README.md",
-        "sprite-utils.ts"
+        "sprite-fx.ts"
     ],
     "testFiles": [
         "test.ts"
